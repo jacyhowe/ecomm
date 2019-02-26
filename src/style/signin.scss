@@ -7,11 +7,15 @@
     &__form {
         display: grid;
         grid-template-rows: [email-s] 64px [email-e password-s] 64px [password-e] minmax(20px, 289px) [line-s line-e] 2px [login-s login-e];
+        grid-template-columns: 1fr;
     }
 }
 
 
 .signin-form{
+    & > * {
+        grid-column: 1/-1;
+    }
     &__line{
         border-top: 1px solid #CCC;
         grid-row: line-s/line-e;
@@ -29,5 +33,10 @@
         grid-row: login-s/login-e;
         margin-top: 39px;
 
+    }
+    &__details {
+        grid-row: 1/-1;       
+        justify-self: end;
+        align-self: start;
     }
 }

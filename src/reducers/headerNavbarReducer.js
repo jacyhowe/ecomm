@@ -4,12 +4,26 @@ import {
 } from '../actions/types';
 
 const INITIAL_STATE = {
-    headerLinks: [],
-    navbarLinks: []
+    headerLinks: [
+        {
+            title: 'yoooo'
+        },
+        {
+            title: 'YOOOO'
+        }
+    ],
+    navbarLinks: [
+        {
+            title: 'account'
+        },
+        {
+            title: 'purchases'
+        }
+    ]
 }
 
 export default function(state = INITIAL_STATE, action) {
-    switch (action) {
+    switch (action.type) {
         case SET_HEADER_LINKS:
             return {
                 ...state,
@@ -19,8 +33,7 @@ export default function(state = INITIAL_STATE, action) {
            return {
                ...state,
                navbarLinks: action.payload
-           } 
-    
+           }     
         default: return state;
     }
 }

@@ -10,9 +10,9 @@ class Header extends Component {
                     {
                         this.props.headerLinks.map((link, index) => {
                             return (
-                            <a className='header__link' key={index} onClick={() => console.log('trying to switch tab')}>
-                            {link.title}
-                            </a>
+                                <a className='header__link' key={index} onClick={() => console.log('trying to switch tab')}>
+                                    {link.title}
+                                </a>
                             )
                         })
                     } 
@@ -23,7 +23,7 @@ class Header extends Component {
 }
 
 function mapStateToProps(state) {
-    const {headerLinks } = state.headerNavbar;
+    const { headerLinks } = state.headerNavbar;
     return {
         headerLinks 
     }

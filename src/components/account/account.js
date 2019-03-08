@@ -5,9 +5,24 @@ import * as actions from '../../actions';
 import PurchaseHistory from './purchaseHistory';
 import AccountInformation from './accountInformation';
 
+
+
 class Account extends Component {
 
     componentDidMount() {
+
+        const headerLinks = [
+            {
+                _id: 0,
+                title: 'Shop',
+                path: '/shop'
+            },
+            {
+                _id: 1,
+                title: 'Logout',
+                path: '/'
+            }
+        ]
 
         const navbarLinks = [
             {
@@ -24,7 +39,7 @@ class Account extends Component {
             }
         ]
 
-        this.props.setHeaderLinks([]);
+        this.props.setHeaderLinks(headerLinks);
         this.props.setNavbarLinks(navbarLinks);
     }
 

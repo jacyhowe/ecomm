@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { reduxForm, Field } from 'redux-form';
 
-import { FormInput, FormButton } from '../formField';
+import { FormInput, FormButton, LongGrayButton } from '../formField';
 
 import history from '../../history';
 
@@ -49,35 +49,42 @@ class AccountInformationForm extends Component {
                 name='zip code'
                 component={FormInput}/>
 
-
-                {/* <Field className='account-information-form__password'
-                type='password'
-                title='Password'
-                placeholder='Password'
-                name='password'
-                component={FormInput}/>
-                <Field className='account-information-form__confirm'
-                type='password'
-                title='Confirm Password'
-                placeholder='Confirm Password'
-                name='confirm'
-                component={FormInput}/>
-
-                <Field className='account-information-form__login'
+                <Field className='account-information-form__change-password'
                 onClick={() => history.push('/account')}
-                type='submit'
-                title='Creat Account'
-                name='login'
-                component={FormButton}/>
-                <Field className='account-information-form__back'
-                onClick={() => history.push('/signin')}
                 type='button'
-                title='Back'
-                name='back'
-                short={true}
-                component={FormButton}/> */}
+                labelTitle='Password'
+                title='Change Password'
+                name='change-password'
+                component={LongGrayButton} />
+
+                 {/* <Field className='account-information-form__password'
+                // type='button'
+                // title='Password'
+                // placeholder='Password'
+                // name='password'
+                // component={FormInput}/>
+                // <Field className='account-information-form__confirm'
+                // type='password'
+                // title='Confirm Password'
+                // placeholder='Confirm Password'
+                // name='confirm'
+                // component={FormInput}/>
+
+                // <Field className='account-information-form__login'
+                // onClick={() => history.push('/account')}
+                // type='submit'
+                // title='Creat Account'
+                // name='login'
+                // component={FormButton}/>
+                // <Field className='account-information-form__back'
+                // onClick={() => history.push('/signin')}
+                // type='button'
+                // title='Back'
+                // name='back'
+                // short={true}
+                // component={FormButton}/> */}
                 
-            </form>
+            // </form>
         )
     }
 }

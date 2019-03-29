@@ -6,9 +6,9 @@
     }
     &__form {
         display: grid;
-        grid-template-rows: [name-s street-address-s] 64px [name-e street-address-e email-s city-s] 64px [email-e city-e zip-code-s state-s] 64px [zip-code-e state-e change-password-s current-s] 64px [change-password-e current-e new-s] 64px [new-e confirm-s] 64px [confirm-e];
-        grid-template-columns: [s] 1fr [m] 1fr [e];
-        grid-gap: 14px;
+        grid-template-rows: [name-s street-address-s] 64px [name-e street-address-e email-s city-s] 64px [email-e city-e zip-code-s state-s] 64px [zip-code-e state-e change-password-s current-s] 64px [change-password-e current-e new-s] 64px [new-e confirm-s] 64px [confirm-e] minmax(20px, 81px) [line-s] 26px [line-e buttons-s] 38px [buttons-e];
+        grid-template-columns: [s cancel-s] 137px [cancel-e] 40px [update-s] 1fr [m] 1fr [update-e] 1fr [e];
+        grid-gap: 15px;
     }
 }
 
@@ -66,4 +66,21 @@
     &__confirm {
         transform: translateY(-25px);
     }
+    &__line {
+        border-top: 1px solid #CCC;
+        margin-bottom: 24px;
+        grid-row: line-s/line-e;
+        grid-column: s/e;
+
+    }
+    &__cancel {
+        grid-column: s/m;
+        grid-row: cancel-s/cancel-e;
+    }
+    &__update-information {
+        grid-column: s/m;
+        grid-row: update-s/update-e;
+        transform: translateX(173px);
+
+    }   
 }

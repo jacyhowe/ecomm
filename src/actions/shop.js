@@ -1,6 +1,7 @@
 import { 
     // SET_SHOP_CATEGORY, 
-    SET_NAVBAR_LINKS
+    SET_NAVBAR_LINKS,
+    SET_SHOP_PRODUCTS
 } from './types';
 
 export function fetchShopCategories() {
@@ -8,32 +9,89 @@ export function fetchShopCategories() {
         type: SET_NAVBAR_LINKS,
         payload: [
             {
-                id: 0,
+                _id: 0,
                 title: 'All'
             },
             {
-                id: 1,
+                _id: 1,
                 title: 'JavaScript'
             },
             {
-                id: 2,
+                _id: 2,
                 title: 'UI/UX'
             },
             {
-                id: 3,
+                _id: 3,
                 title: 'Python'
             },
             {
-                id: 4,
+                _id: 4,
                 title: 'Linux'
             },
             {
-                id: 5,
+                _id: 5,
                 title: 'UML'
             },
             {
-                id: 6,
+                _id: 6,
                 title: 'Ruby'
+            }
+        ]
+    })
+}
+
+export function fetchShopProducts() {
+    return ({
+        type: SET_SHOP_PRODUCTS,
+        payload: [
+            {
+                __id: 0,
+                title: 'JavaScript in the Browser',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 1]
+            },
+            {
+                _id: 1,
+                title: 'Graph Database',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 6]
+            },
+            {
+                _id: 2,
+                title: 'Full Stack Development',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 1, 4]
+            },
+            {
+                _id: 3,
+                title: 'JavaScript Development',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 1]
+            },
+            {
+                _id: 4,
+                title: 'User Interface Design',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 2]
+            },
+            {
+                _id: 5,
+                title: 'User Experience Design',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 2]
+            },
+            {
+                _id: 6,
+                title: 'Advanced OOP',
+                description: 'Physical fitness is a state of health and well-being and, more specifically, the ability to perform aspects of sports, occupations and daily activities. Physical fitness is generally achieved through proper nutrition, moderate-vigorous physical exercise, and sufficient rest',
+                price: 1.99,
+                belongsTo: [0, 6]
             }
         ]
     })

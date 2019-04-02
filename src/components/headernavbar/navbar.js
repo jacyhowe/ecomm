@@ -5,12 +5,13 @@ import * as actions from '../../actions';
 
 class Navbar extends Component {
 
-    handleOnClick(link){
+    handleOnClick = (link) => {
         this.props.changeNavbarActive(link._id)
         if(this.props.onClick) {
             this.props.onClick(link._id);
         }
     }
+
     render() {
         return (
             <div className='navbar'>
@@ -29,9 +30,10 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-    const{ navbarLinks } = state.headerNavbar;
+    const{ navbarLinks, onClick } = state.headerNavbar;
     return {
-        navbarLinks
+        navbarLinks,
+        onClick
     }
 }
 

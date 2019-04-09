@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-
+import CartProduct from './cartProduct';
 
 function CartButton({className, icon}) {
-    return(
+    return (
         <div className={`${className} cart-button`}>
-            <i className={icon}/>
+            <i className={icon}/>        
         </div>
     )
 }
+
 function CartContent({className, products}) {
     let count = products.length;
-    let productsJSX = products.map(product => <h1 key={product}>{product}</h1>);
-return (
-    <div className={`${className} cart-content`}>
-        <div className='cart-content__title'>
-            Cart ({count})
-        </div>
-        <div className='cart-content__products'>
-            {productsJSX}
-        </div>
-        <CartFooter className='cart-content__footer' products={products} />        
+    let productsJSX = products.map(product => <CartProduct key={product}/>);
+    return (
+        <div className={`${className} cart-content`}>
+            <div className='cart-content__title'>
+                Cart ({count})
+            </div>
+            <div className='cart-content__products'>
+                {productsJSX}
+            </div>
+            <CartFooter className='cart-content__footer' products={products}/>
         </div>
     )
 }
@@ -37,16 +38,17 @@ function CartFooter({className, products}) {
             <div className='cart-footer__price'>
                 ${price}
             </div>
-        </div>    
+        </div>
     )
 }
+
 class ShopCart extends Component {
     render() {
         const { className } = this.props;
-         return (
+        return (
             <div className={`${className} shop-cart`}>
                 <CartButton className='shop-cart__toggle' icon='fas fa-times'/>
-                <CartContent className='shop-cart__content' products={[551, 432, 534, 867, 843, 495, 364]}/>
+                <CartContent className='shop-cart__content' products={[241, 343, 454, 242, 334, 4554, 3434, 455, 243, 434, 354]}/>
             </div>
         )
     }

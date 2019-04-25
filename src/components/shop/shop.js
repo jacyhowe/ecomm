@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import ShopSearchBar from './shopSearchbar';
+import ShopSearchBar from './shopSearchBar';
 import ShopProduct from './shopProduct';
 import ShopCart from './shopCart';
 import CartButton from './cartButton';
@@ -27,7 +27,8 @@ class Shop extends Component {
         ]
         this.props.setHeaderLinks(headerLinks);
         this.props.fetchShopCategories();
-     
+
+        // filter products with links
         this.props.fetchShopProducts();
     }
 
@@ -35,15 +36,14 @@ class Shop extends Component {
         if(this.props != nextProps) {
             this.props.setNavbarLinks(nextProps.categories, (_id) => this.props.filterProductsWithCategoryId(_id));
         }
-
         return true
     }
 
     onSubmit = (fields) => {
-        this.props.filteredProductsWithQuery(fields)
+        this.props.filterProductsWithQuery(fields)
     }
 
-    handleAddToCart() {
+    handleAddToCart = () => {
         if(document.getElementById('shop-cart').classList.contains('cart-hidden')) {
             document.getElementById('shop-cart').classList.remove('cart-hidden');
         } else {
@@ -51,38 +51,37 @@ class Shop extends Component {
         }
     }
 
-    render() {
-        // <ShopCart className='shop__cart'/>
 
+    render() {
+        // return <ShopCart className='shop__cart'/>
         return (
             <div className='shop'>
                 <ShopSearchBar onSubmit={this.onSubmit} className='shop__search-bar'/>
                 <div className='shop__products'>
-                {
-                    this.props.filteredProducts.map(product => {
-                    return (
-                        <ShopProduct {...product} key={product._id} />
-                        )
-                    })
-                }
-                
+                    {
+                        this.props.filteredProducts.map(product => {
+                            return (
+                                <ShopProduct {...product} key={product._id} />
+                            )
+                        })
+                    }
                 </div>
                 {
                     this.state.showCart ? <ShopCart className='shop__cart'/> : ''
                 }
-
-                <CartButton id='cart-button' onClick={this.handleAddToCart} className='shop__cart-button' icon='fas fa-cart-plus'/>
+                
+                <CartButton onClick={this.handleAddToCart} className='shop__cart-button' icon='fas fa-cart-plus'/>
             </div>
         )
     }
 }
 
-function mapStateToProps(state){
-    const { categories, filteredProducts } = state.shop
+function mapStateToProps(state) {
+    const { categories, filteredProducts } = state.shop;
     return {
         categories,
         filteredProducts
-    }
+    } 
 }
 
 Shop = connect(mapStateToProps, actions)(Shop);

@@ -9,6 +9,7 @@ export const SET_PURCHASE_DETAIL = 'SET_PURCHASE_DETAIL';
 
 //user cart
 export const SET_CART_PRODUCTS = 'SET_CART_PRODUCTS';
+export const ADD_CART_PRODUCT = 'ADD_CART_PRODUCT';
 
 //shop
 export const SET_SHOP_CATEGORY = 'SET_SHOP_CATEGORY';

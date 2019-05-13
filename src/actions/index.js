@@ -9,7 +9,8 @@ import {
     fetchUserPurchases,
     setPurchaseDetail,
     fetchCartProducts,
-    addCartProduct
+    addCartProduct,
+    signIn
 } from './user';
 
 import {
@@ -29,6 +30,7 @@ export {
     fetchShopCategories,
     fetchShopProducts,
     addCartProduct,
+    signIn,
 
     filterProductsWithCategoryId,
     filteredProductsWithQuery,
